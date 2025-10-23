@@ -1,0 +1,85 @@
+@page
+@model ClassroomReservationSystem.Pages.Auth.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_Layout";
+}
+
+<div class="d-flex justify-content-center align-items-start" style="min-height: 100vh; padding-top: 60px;">
+    <div class="card shadow-lg p-4" style="max-width: 400px; width: 90%; background-color: rgba(255,255,255,0.92); color: black;">
+        <h2 class="text-center mb-4">Register</h2>
+
+        <form method="post" novalidate>
+            <div class="form-group mb-3">
+                <label asp-for="Input.FirstName" class="form-label"></label>
+                <input asp-for="Input.FirstName" class="form-control" placeholder="Enter your first name" />
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Input.LastName" class="form-label"></label>
+                <input asp-for="Input.LastName" class="form-control" placeholder="Enter your last name" />
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Input.Email" class="form-label"></label>
+                <input asp-for="Input.Email" class="form-control" placeholder="Enter your email" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="Input.Password" class="form-label"></label>
+                <input asp-for="Input.Password" type="password" class="form-control" placeholder="Enter your password" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Register</button>
+        </form>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-image: url('/images/purple.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        input.form-control {
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        input.form-control::placeholder {
+            color: #888;
+            opacity: 1;
+        }
+
+        .btn {
+            font-weight: 600;
+            border-radius: 8px;
+        }
+
+        .card {
+            border-radius: 12px;
+        }
+    </style>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

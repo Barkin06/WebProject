@@ -1,0 +1,161 @@
+@page
+@model ClassroomReservationSystem.Pages.Admin.ReservationsModel
+@{
+    Layout = "_Layout";
+}
+<!--GPT, According to my Reservations.cshtml.cs file, can you create a Reservation managing page with boostrap icons and good looking? -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+<div class="d-flex justify-content-center align-items-start" style="min-height: 100vh; padding-top: 60px;">
+    <div class="card shadow-lg p-4" style="max-width: 1200px; width: 95%; background-color: rgba(255,255,255,0.92);">
+        <h2 class="mb-4 text-dark">
+            <i class="bi bi-list-check me-2"></i> Manage Reservations
+        </h2>
+
+        <form method="post" asp-page-handler="ClearTable" class="d-inline-block text-end mb-4 me-2">
+            <button type="submit" class="btn btn-outline-secondary">
+                <i class="bi bi-eraser me-1"></i> Clear Table
+            </button>
+        </form>
+
+        <form method="post" asp-page-handler="ClearAll" class="d-inline-block text-end mb-4">
+            <button class="btn btn-danger">
+                <i class="bi bi-trash3 me-1"></i> Clear All Reservations
+            </button>
+        </form>
+
+        @{
+            var printedGroups = new HashSet<string>();
+        }
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-dark text-center align-middle">
+                    <tr>
+                        <th>Instructor <i class="bi bi-person-badge"></i></th>
+                        <th>Classroom <i class="bi bi-building"></i></th>
+                        <th>Course Name <i class="bi bi-journal-text"></i></th>
+                        <th>Start Time <i class="bi bi-clock"></i></th>
+                        <th>End Time <i class="bi bi-clock-history"></i></th>
+                        <th>Group <i class="bi bi-people"></i></th>
+                        <th>Status <i class="bi bi-info-circle"></i></th>
+                        <th>Actions <i class="bi bi-tools"></i></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var reservation in Model.Reservations)
+                    {
+                        var groupId = reservation.ReservationGroupId?.ToString() ?? reservation.Id.ToString();
+
+                        if (printedGroups.Contains(groupId))
+                        {
+                            continue;
+                        }
+
+                        printedGroups.Add(groupId);
+
+                        <tr class="text-center">
+                            <td>@reservation.ApplicationUser?.FullName</td>
+                            <td>@reservation.Classroom?.Name</td>
+                            <td>@reservation.CourseName</td>
+                            <td>@reservation.StartTime.ToString("g")</td>
+                            <td>@reservation.EndTime.ToString("g")</td>
+                            <td>@reservation.ReservationGroupId?.ToString().Substring(0, 8)</td>
+                            <td>
+                                @if (reservation.IsApproved)
+                                {
+                                    <span class="badge bg-success">
+                                        <i class="bi bi-check-circle me-1"></i> Approved
+                                    </span>
+                                }
+                                else if (reservation.IsRejected)
+                                {
+                                    <span class="badge bg-danger">
+                                        <i class="bi bi-x-circle me-1"></i> Rejected
+                                    </span>
+                                }
+                                else if (reservation.IsPending)
+                                {
+                                    <span class="badge bg-warning text-dark">
+                                        <i class="bi bi-hourglass-split me-1"></i> Pending
+                                    </span>
+                                }
+                            </td>
+                            <td>
+                                <form method="post" class="d-flex justify-content-center gap-2">
+                                    @if (reservation.ReservationGroupId != null)
+                                    {
+                                        <input type="hidden" name="groupId" value="@reservation.ReservationGroupId" />
+                                        <button name="action" value="approveGroup" type="submit" class="btn btn-sm btn-primary" title="Approve Group">
+                                            <i class="bi bi-check-lg"></i>
+                                        </button>
+                                        <button name="action" value="rejectGroup" type="submit" class="btn btn-sm btn-secondary" title="Reject Group">
+                                            <i class="bi bi-x-lg"></i>
+                                        </button>
+                                    }
+                                    else
+                                    {
+                                        <input type="hidden" name="reservationId" value="@reservation.Id" />
+                                        <button name="action" value="approve" type="submit" class="btn btn-sm btn-success" title="Approve">
+                                            <i class="bi bi-check-lg"></i>
+                                        </button>
+                                        <button name="action" value="reject" type="submit" class="btn btn-sm btn-danger" title="Reject">
+                                            <i class="bi bi-x-lg"></i>
+                                        </button>
+                                    }
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" onclick="location.href='@Url.Page("/Admin/ViewAllReservations")'">
+                <i class="bi bi-arrow-left-circle me-2"></i> Back to Calendar
+            </button>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-image: url('/images/purple.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .card {
+            border-radius: 12px;
+        }
+
+        .btn {
+            font-weight: 600;
+            border-radius: 8px;
+        }
+
+        .table th,
+        .table td {
+            vertical-align: middle;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        document.getElementById("clearTableBtn")?.addEventListener("click", function () {
+            const tableBody = document.querySelector("table tbody");
+            if (tableBody) {
+                tableBody.innerHTML = "";
+            }
+        });
+    </script>
+}

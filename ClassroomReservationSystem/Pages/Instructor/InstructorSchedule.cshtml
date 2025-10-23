@@ -1,0 +1,80 @@
+@page
+@model ClassroomReservationSystem.Pages.Instructor.InstructorScheduleModel
+
+@{
+    ViewData["Title"] = "My Weekly Schedule";
+    Layout = "_Layout";
+}
+<!--GPT, Create me a instructor scedule view page with a calendar like the admin calendar in the screenshot, I will add constraints
+no worry about it just create it -->
+<div class="d-flex justify-content-center align-items-start" style="min-height: 100vh; padding-top: 60px;">
+    <div class="card shadow-lg p-4 w-100" style="max-width: 1100px; background-color: rgba(255,255,255,0.95); color: black;">
+        <h2 class="text-center mb-4 fw-semibold">📅 My Weekly Schedule</h2>
+        <div id="calendar"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/Instructor/InstructorSchedule?handler=Events')
+                .then(res => res.json())
+                .then(events => {
+                    var calendarEl = document.getElementById('calendar');
+                    var calendar = new FullCalendar.Calendar(calendarEl, {
+                        initialView: 'timeGridWeek',
+                        headerToolbar: {
+                            left: 'prev,next today',
+                            center: 'title',
+                            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                        },
+                        height: 'auto',
+                        slotMinTime: '09:00:00',
+                        slotMaxTime: '18:00:00',
+                        validRange: {
+                            start: '2025-02-17',
+                            end: '2025-06-16'
+                        },
+                        allDaySlot: false,
+                        slotLabelContent: function (arg) {
+                            const hour = arg.date.getHours();
+                            const nextHour = hour + 1;
+                            const format = n => n.toString().padStart(2, '0');
+                            return format(hour) + '.00-' + format(nextHour) + '.00';
+                        },
+                        events: events
+                    });
+                    calendar.render();
+                });
+        });
+    </script>
+}
+
+@section Styles {
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-image: url('/images/green.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .card {
+            border-radius: 12px;
+        }
+
+        #calendar {
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>
+}

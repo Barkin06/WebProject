@@ -1,0 +1,156 @@
+@page
+@model ClassroomReservationSystem.Pages.Instructor.NewReservationModel
+@{
+    ViewData["Title"] = "New Reservation Request";
+    Layout = "_Layout";
+}
+
+<div class="d-flex justify-content-center align-items-start" style="min-height: 100vh; padding-top: 60px;">
+    <div class="card reservation-card shadow-lg p-4">
+        <h2 class="mb-4 text-center fw-semibold">New Reservation Request</h2>
+
+        <form method="post">
+            <div class="form-group mb-3">
+                <label asp-for="Reservation.CourseName" class="form-label">Course Name</label>
+                <input asp-for="Reservation.CourseName" class="form-control" placeholder="Enter course name" required />
+                <span asp-validation-for="Reservation.CourseName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Reservation.ClassroomId" class="form-label">Classroom</label>
+                <select asp-for="Reservation.ClassroomId" asp-items="Model.ClassroomOptions" class="form-control"></select>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="StartTime" class="form-label">Start Time</label>
+                <input asp-for="StartTime" type="datetime-local" class="form-control" id="startTimeInput" required />
+                <small id="startDay" class="form-text text-muted mt-1"></small>
+                <small id="startWarning" class="text-danger fw-bold"></small>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="EndTime" class="form-label">End Time</label>
+                <input asp-for="EndTime" type="time" class="form-control" id="endTimeInput" required />
+                <small id="endDay" class="form-text text-muted mt-1">Same date as start</small>
+                <small id="endWarning" class="text-danger fw-bold"></small>
+            </div>
+
+            <div class="form-check mb-3">
+                <input asp-for="ApplyToAllWeeks" type="checkbox" class="form-check-input" id="applyAllWeeks" />
+                <label class="form-check-label" for="applyAllWeeks">Apply to all weeks in the term</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3 w-100">Submit Reservation</button>
+        </form>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success mt-3">@TempData["SuccessMessage"]</div>
+        }
+        @if (TempData["InfoMessage"] != null)
+        {
+            <div class="alert alert-info mt-3">@TempData["InfoMessage"]</div>
+        }
+        @if (TempData["WarningMessage"] != null)
+        {
+            <div class="alert alert-warning mt-3">@TempData["WarningMessage"]</div>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger mt-3">@TempData["ErrorMessage"]</div>
+        }
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-image: url('/images/green.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .card {
+            border-radius: 12px;
+        }
+
+        .reservation-card {
+            max-width: 700px;
+            width: 95%;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: black;
+        }
+
+        body.dark-mode .reservation-card {
+            background-color: rgba(30, 30, 30, 0.95);
+            color: white;
+        }
+
+        body.dark-mode .reservation-card input,
+        body.dark-mode .reservation-card select,
+        body.dark-mode .reservation-card textarea {
+            background-color: #2c2c2c;
+            color: white;
+            border: 1px solid #444;
+        }
+
+        body.dark-mode .reservation-card input::placeholder {
+            color: #ccc;
+        }
+
+        body.dark-mode .reservation-card .form-text {
+            color: #bbb !important;
+        }
+    </style>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function showDayInfo(inputId, outputDayId, warningId) {
+            const input = document.getElementById(inputId);
+            const output = document.getElementById(outputDayId);
+            const warning = document.getElementById(warningId);
+
+            input.addEventListener('change', function () {
+                const date = new Date(this.value);
+                if (!isNaN(date)) {
+                    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                    const dayIndex = date.getDay();
+                    output.textContent = "Day: " + days[dayIndex];
+
+                    if (dayIndex === 0 || dayIndex === 6) {
+                        warning.textContent = "❌ No weekend lecture allowed!";
+                    } else {
+                        warning.textContent = "";
+                    }
+                } else {
+                    output.textContent = '';
+                    warning.textContent = '';
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            showDayInfo('startTimeInput', 'startDay', 'startWarning');
+
+            const startInput = document.getElementById('startTimeInput');
+            const endTimeInput = document.getElementById('endTimeInput');
+
+            startInput.addEventListener('change', function () {
+                const startDate = new Date(this.value);
+                if (!isNaN(startDate)) {
+                    const hour = startDate.getHours().toString().padStart(2, '0');
+                    const min = startDate.getMinutes().toString().padStart(2, '0');
+                    endTimeInput.value = hour + ":" + min;
+                }
+            });
+        });
+    </script>
+}

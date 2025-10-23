@@ -1,0 +1,121 @@
+@page
+@attribute [Authorize(Roles = "Admin")]
+@using Microsoft.AspNetCore.Authorization;
+
+<!--GPT, Create me a admin panel page with the butons of manage terms, view schedule/reservations,
+view instructor feedbacks,#222 register instructor and view contact messages, iwth boostrap logos, hovers and different fonts 
+also using cards. I will link the remaining pages -->
+@{
+    ViewData["Title"] = "Admin Panel";
+    Layout = "_Layout";
+}
+
+<!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+<div class="d-flex justify-content-center align-items-start" style="min-height: 100vh; padding-top: 60px;">
+    <div class="card shadow-lg p-4" style="max-width: 1200px; width: 95%; background-color: rgba(255,255,255,0.92);">
+        <h2 class="mb-4 text-center text-dark">Admin Panel</h2>
+
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <a href="@Url.Page("/Admin/Terms")" class="card text-decoration-none shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-calendar2-week display-4 text-primary mb-3"></i>
+                            <h5 class="card-title">Academic Terms</h5>
+                            <p class="card-text">Define and manage academic terms (semesters).</p>
+                            <span class="btn btn-outline-primary mt-2">Manage Terms</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="@Url.Page("/Admin/ViewAllReservations")" class="card text-decoration-none shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-calendar-check display-4 text-success mb-3"></i>
+                            <h5 class="card-title">All Schedules</h5>
+                            <p class="card-text">View all instructor and classroom reservations during the academic term.</p>
+                            <span class="btn btn-outline-success mt-2">View All Reservations</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="@Url.Page("/Admin/InstructorRatings")" class="card text-decoration-none shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-star-half display-4 text-warning mb-3"></i>
+                            <h5 class="card-title">Ratings</h5>
+                            <p class="card-text">View instructor average feedback ratings.</p>
+                            <span class="btn btn-outline-warning mt-2">View Instructor Ratings</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="@Url.Page("/Admin/Register")" class="card text-decoration-none shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-person-plus-fill display-4 text-info mb-3"></i>
+                            <h5 class="card-title">Register Instructor</h5>
+                            <p class="card-text">Add new instructor accounts manually.</p>
+                            <span class="btn btn-outline-info mt-2">Register</span>
+                        </div>
+                    </a>
+                </div>
+
+
+                <div class="col-md-4">
+                    <a href="@Url.Page("/Admin/ViewContactMessages")" class="card text-decoration-none shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-envelope-fill display-4 text-danger mb-3"></i>
+                            <h5 class="card-title">Contact Messages</h5>
+                            <p class="card-text">View messages sent by users via the contact form.</p>
+                            <span class="btn btn-outline-danger mt-2">View Messages</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-image: url('/images/purple.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            color: #333;
+        }
+
+        .card-title {
+            color: #222;
+            font-weight: 600;
+        }
+
+        .card-text {
+            color: #555;
+        }
+
+        .btn {
+            font-weight: 600;
+            border-radius: 8px;
+        }
+
+        a.card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.25);
+        }
+    </style>
+}

@@ -1,0 +1,115 @@
+@page
+@model ClassroomReservationSystem.Pages.Admin.InstructorRatingsModel
+
+@{
+    ViewData["Title"] = "Instructor Ratings Overview";
+    Layout = "_Layout";
+}
+
+<div class="d-flex justify-content-center align-items-start" style="min-height: 100vh; padding-top: 60px;">
+    <div class="card shadow-lg p-4" style="max-width: 1000px; width: 95%; background-color: rgba(255,255,255,0.95); color: black;">
+        <h2 class="mb-4 text-center">⭐ Overall Instructor Ratings</h2>
+
+        <div class="table-responsive mb-5">
+            <table class="table table-bordered table-striped mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>Instructor</th>
+                        <th class="text-center">Overall Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var instructor in Model.InstructorSummaries)
+                    {
+                        <tr>
+                            <td>@instructor.InstructorFullName</td>
+                            <td class="text-center">
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    if (i <= Math.Round(instructor.OverallAverageRating))
+                                    {
+                                        <span class="text-warning">★</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-secondary">☆</span>
+                                    }
+                                }
+                                <span class="ms-2">(@instructor.OverallAverageRating.ToString("F2") / 5)</span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="text-center text-dark mb-4">📘 Course-wise Ratings</h3>
+        <table class="table table-striped mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th>Instructor</th>
+                    <th>Course Name</th>
+                    <th class="text-center">Average Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.InstructorCourseRatings)
+                {
+                    <tr>
+                        <td>@item.InstructorFullName</td>
+                        <td>@item.CourseName</td>
+                        <td class="text-center">
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                if (i <= Math.Round(item.AverageRating))
+                                {
+                                    <span class="text-warning">★</span>
+                                }
+                                else
+                                {
+                                    <span class="text-secondary">☆</span>
+                                }
+                            }
+                            <span class="ms-2">(@item.AverageRating.ToString("F2") / 5)</span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-image: url('/images/purple.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .card {
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        h2, h3 {
+            color: #222;
+            font-weight: 600;
+        }
+        table {
+            font-size: 0.95rem;
+        }
+
+        .table th,
+        .table td {
+            vertical-align: middle;
+        }
+
+    </style>
+}

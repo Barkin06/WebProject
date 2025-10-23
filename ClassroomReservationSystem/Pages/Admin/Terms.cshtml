@@ -1,0 +1,83 @@
+@page
+@model ClassroomReservationSystem.Pages.Admin.TermsModel
+<!--Create a cshtml page for the term.cshtml.cs that I shared with you. Use some logos to fit-->
+@{
+    ViewData["Title"] = "Manage Terms";
+    Layout = "_Layout";
+}
+
+<div class="d-flex justify-content-center align-items-start" style="min-height: 100vh; padding-top: 60px;">
+    <div class="card shadow-lg p-4" style="max-width: 1000px; width: 95%; background-color: rgba(255,255,255,0.95);">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0 text-dark">📅 Manage Academic Terms</h2>
+            <a class="btn btn-success" href="@Url.Page("/Admin/AddTerm")">➕ Add New Term</a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Active</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var term in Model.Terms)
+                    {
+                        <tr>
+                            <td>@term.Name</td>
+                            <td>@term.StartDate.ToShortDateString()</td>
+                            <td>@term.EndDate.ToShortDateString()</td>
+                            <td>
+                                @if (term.IsActive)
+                                {
+                                    <span class="badge bg-success">Yes</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">No</span>
+                                }
+                            </td>
+                            <td class="text-center">
+                                <a class="btn btn-sm btn-outline-primary me-1" href="@Url.Page("/Admin/EditTerm", new { id = term.TermId })">
+                                    ✏️ Edit
+                                </a>
+                                <a class="btn btn-sm btn-outline-danger" href="@Url.Page("/Admin/DeleteTerm", new { id = term.TermId })">
+                                    🗑️ Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-image: url('/images/purple.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .card {
+            border-radius: 12px;
+        }
+
+        .btn {
+            font-weight: 600;
+            border-radius: 8px;
+        }
+    </style>
+}

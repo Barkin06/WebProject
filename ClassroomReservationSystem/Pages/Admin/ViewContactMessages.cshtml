@@ -1,0 +1,79 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@model ClassroomReservationSystem.Pages.Admin.ViewContactMessagesModel
+@attribute [Authorize(Roles = "Admin")]
+<!-- GPT, Add some visuals and logos to the code that I sent you, I need better looking page,#333 also with the font and styles.-->
+@{
+    ViewData["Title"] = "Contact Messages";
+    Layout = "_Layout";
+}
+
+<div class="d-flex justify-content-center align-items-start" style="min-height: 100vh; padding-top: 60px;">
+    <div class="card shadow-lg p-4" style="max-width: 1200px; width: 95%; background-color: rgba(255,255,255,0.95);">
+        <h2 class="mb-4 text-center text-dark">📬 Contact Form Messages</h2>
+
+        @if (!Model.Messages.Any())
+        {
+            <div class="alert alert-info text-center">No contact messages received yet.</div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover shadow-sm">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Message</th>
+                            <th>Received At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var msg in Model.Messages)
+                        {
+                            <tr>
+                                <td>@msg.FullName</td>
+                                <td>@msg.Email</td>
+                                <td>@msg.Subject</td>
+                                <td>@msg.Message</td>
+                                <td>@msg.CreatedAt.ToLocalTime().ToString("f")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-image: url('/images/purple.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            color: #333;
+        }
+
+        .table th, .table td {
+            vertical-align: middle;
+        }
+
+        .btn {
+            font-weight: 600;
+            border-radius: 8px;
+        }
+    </style>
+}

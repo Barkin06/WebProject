@@ -1,0 +1,133 @@
+is_global = true
+build_property.TargetFramework = net9.0
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ClassroomReservationSystem
+build_property.RootNamespace = ClassroomReservationSystem
+build_property.ProjectDir = C:\Users\akkay\OneDrive\Masaüstü\WebProject_202211004_Salih_Barkin_AKKAYA\ClasroomResarvationSystem_Final\ClassroomReservationSystem\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\akkay\OneDrive\Masaüstü\WebProject_202211004_Salih_Barkin_AKKAYA\ClasroomResarvationSystem_Final\ClassroomReservationSystem
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Admin/AddTerm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQWRkVGVybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Admin/DeleteTerm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGVsZXRlVGVybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Admin/EditTerm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRWRpdFRlcm0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Admin/InstructorRatings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5zdHJ1Y3RvclJhdGluZ3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Admin/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Admin/Reservations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUmVzZXJ2YXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Admin/Terms.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGVybXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Admin/ViewAllReservations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVmlld0FsbFJlc2VydmF0aW9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Admin/ViewContactMessages.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVmlld0NvbnRhY3RNZXNzYWdlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Auth/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxIb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Auth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Auth/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Instructor/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5zdHJ1Y3RvclxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Instructor/FeedbackSummary.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5zdHJ1Y3RvclxGZWVkYmFja1N1bW1hcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Instructor/InstructorSchedule.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5zdHJ1Y3RvclxJbnN0cnVjdG9yU2NoZWR1bGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Instructor/NewReservation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5zdHJ1Y3RvclxOZXdSZXNlcnZhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Public/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHVibGljXENvbnRhY3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Public/Feedback.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHVibGljXEZlZWRiYWNrLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/akkay/OneDrive/Masaüstü/WebProject_202211004_Salih_Barkin_AKKAYA/ClasroomResarvationSystem_Final/ClassroomReservationSystem/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-yevrxuj7or

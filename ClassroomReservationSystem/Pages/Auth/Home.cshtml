@@ -1,0 +1,93 @@
+@page
+@model ClassroomReservationSystem.Pages.HomeModel
+@{
+    ViewData["Title"] = "Home";
+    Layout = "_Layout";
+}
+
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <div class="home-box text-center">
+        <h1 class="mb-5 welcome-text">Welcome to Classroom Reservation System</h1>
+
+        <div class="d-flex justify-content-center gap-4">
+            <a href="/Auth/Login" class="btn btn-primary btn-lg px-5 py-3">Login</a>
+            <a href="/Public/Feedback" class="btn btn-success btn-lg px-5 py-3">Feedback</a>
+            <a href="/Public/Contact" class="btn btn-warning btn-lg px-5 py-3">Contact Us</a>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-image: url('/images/home.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .home-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            color: black;
+        }
+
+        body.dark-mode .home-box {
+            background-color: #1f1f1f;
+            color: white;
+        }
+
+        body.dark-mode .welcome-text {
+            color: white;
+        }
+
+        .homepage-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .homepage-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-login {
+            background-color: #28a745;
+        }
+
+        .btn-feedback {
+            background-color: #007bff;
+        }
+
+        .btn-contact {
+            background-color: #6f42c1;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+    </style>
+}

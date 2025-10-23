@@ -1,0 +1,89 @@
+@page
+@model ClassroomReservationSystem.Pages.Admin.AddTermModel
+<!--GPT, please make it visually better the code which includes html only. Dont touch my background pic settings.-->
+@{
+    ViewData["Title"] = "Add New Term";
+    Layout = "_Layout";
+}
+
+<div class="d-flex justify-content-center align-items-start" style="min-height: 100vh; padding-top: 60px;">
+    <div class="card shadow-lg p-4" style="max-width: 600px; width: 90%; background-color: rgba(255, 255, 255, 0.92); color: black;">
+        <h2 class="mb-4 text-center">Add New Term</h2>
+
+        @if (!ModelState.IsValid && Model.ErrorMessages.Any())
+        {
+            <div class="alert alert-danger">
+                @foreach (var error in Model.ErrorMessages)
+                {
+                    <div>@error</div>
+                }
+            </div>
+        }
+
+        <form method="post">
+            <div class="form-group mb-3">
+                <label asp-for="Term.Name" class="form-label">Name</label>
+                <input asp-for="Term.Name" class="form-control" />
+                <span asp-validation-for="Term.Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Term.StartDate" class="form-label">Start Date</label>
+                <input asp-for="Term.StartDate" type="date" class="form-control" value="@Model.Term.StartDate.ToString("yyyy-MM-dd")" />
+                <span asp-validation-for="Term.StartDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Term.EndDate" class="form-label">End Date</label>
+                <input asp-for="Term.EndDate" type="date" class="form-control" value="@Model.Term.EndDate.ToString("yyyy-MM-dd")" />
+                <span asp-validation-for="Term.EndDate" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-success">Create</button>
+                <a asp-page="Terms" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-image: url('/images/purple.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        label.form-label {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        input.form-control {
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        input.form-control::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+
+        .btn {
+            font-weight: 600;
+            border-radius: 8px;
+        }
+    </style>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
